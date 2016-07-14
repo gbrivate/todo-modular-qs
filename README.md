@@ -1,10 +1,5 @@
 # todo-modular-qs
 
-
-A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
-
-
-
 ## Scaffolding
 
 npm install

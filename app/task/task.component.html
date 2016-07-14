@@ -1,7 +1,10 @@
 <h2>Tasks list - Total: {{tasks.length}}</h2>
 <div>
     <input type="text" [(ngModel)]="task.description">
-    <button (click)="addTask()">Add</button>
+    <button
+            (click)="addTask()"
+            [disabled]="!task.description"
+            [class]="!task.description?'button-disabled':'button-enable'">ADD TASK</button>
 </div>
 <div>
     <h3 *ngIf="tasks.length==0">No task at this moment.</h3>
@@ -11,7 +14,6 @@
     <app-task-list
             [tasks]="tasks"
             (isChange)="onChange($event)">
-
     </app-task-list>
 </div>
 

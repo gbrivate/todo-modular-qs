@@ -54,6 +54,12 @@ button {
     cursor: pointer;
     cursor: hand;
 }
-button:hover {
-    background-color: #cfd8dc;
+
+.button-disabled {
+    color: darkgrey;
+}
+
+.button-enable {
+    color: white;
+    background-color: darkblue;
 }

@@ -1,2 +1,3 @@
 export * from './task.component';
-export * from './shared/task.service';
+export * from './task-list';
+export * from './shared';

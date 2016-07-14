@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {TaskModule} from '../modules';
+
 import {TaskService} from './shared';
 import {TaskListComponent} from './task-list';
 
@@ -25,7 +26,6 @@ export class TaskComponent implements OnInit {
     ngOnInit():void {
         console.log('TaskComponent.ngOnInit');
         this.tasks = this.taskService.getTasks();
-
     }
 
     addTask():void {
@@ -35,8 +35,23 @@ export class TaskComponent implements OnInit {
         this.task = new TaskModule();
     }
 
-    //event emitter
-    onChange(isChange:boolean) {
+    deleteAllTask():void {
+        console.log('TaskComponent.deleteAllTask');
+        this.taskService.removeAllTasks();
+        this.tasks = [];
+        this.task = new TaskModule();
+    }
+
+    reset() {
+        this.taskService.getRemoteTasks().subscribe(
+            response =>  this.tasks = response,
+            error => console.log('error - loading tasks')
+        )
+    }
+
+    // have a look at https://angular.io/docs/ts/latest/cookbook/component-communication.html
+    onChange(isChange:boolean):void {
+        console.log('TaskComponent.onChange');
         if (isChange) {
             this.tasks = this.taskService.getTasks();
         }

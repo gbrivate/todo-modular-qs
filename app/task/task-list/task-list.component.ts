@@ -2,7 +2,7 @@ import {Component, Input, EventEmitter, Output} from '@angular/core';
 
 import {TaskModule} from '../../modules';
 
-import {TaskService} from '../shared/task.service';
+import {TaskService} from '../shared';
 
 @Component({
     moduleId: module.id,
@@ -11,8 +11,8 @@ import {TaskService} from '../shared/task.service';
 })
 export class TaskListComponent {
 
+    // Have a look at https://angular.io/docs/ts/latest/cookbook/component-communication.html
     @Input() tasks:TaskModule[];
-
     @Output() isChange:EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private taskService:TaskService) {

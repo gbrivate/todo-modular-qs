@@ -1,11 +1,19 @@
 <h2>Tasks list - Total: {{tasks.length}}</h2>
 <div>
-    <input type="text" [(ngModel)]="task.description">
+    <input type="text"
+           (keyup.enter)="addTask()"
+           [(ngModel)]="task.description">
     <button
             (click)="addTask()"
             [disabled]="!task.description"
             [class]="!task.description?'button-disabled':'button-enable'">ADD TASK
     </button>
+    <button
+            (click)="deleteAllTask()"
+            [disabled]="!tasks.length"
+            [class]="!tasks.length?'button-disabled':'button-enable'">DELETE ALL
+    </button>
+    <button (click)="reset()" class="button-enable">RESET</button>
 </div>
 <div>
     <h3 *ngIf="tasks.length==0">No task at this moment.</h3>

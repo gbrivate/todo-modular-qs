@@ -1,11 +1,4 @@
-<div>
-    <ul class="tasks">
-        <li *ngFor="let task of tasks">
-            <!--<li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">-->
-
-            {{task.description}}
-
-            <button class="delete-button" (click)="removeTask(task)">Delete</button>
-        </li>
-    </ul>
-</div>
+<p *ngFor="let task of tasks" style="width: 250px">
+    <span style="width: 200px">{{task.id}} - {{task.description}}</span>
+    <button class="delete-button" (click)="removeTask(task)">Delete</button>
+</p>

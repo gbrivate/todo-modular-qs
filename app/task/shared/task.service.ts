@@ -6,13 +6,15 @@ import {TaskModule} from '../../modules';
 export class TaskService {
 
     tasks:TaskModule[];
+    index:number;
 
     constructor() {
         this.tasks = [];
+        this.index = 1;
     }
 
     addTask(task:TaskModule):void {
-        task.id = this.tasks.length+1;
+        task.id = this.index++;
         this.tasks.push(task);
     }
 

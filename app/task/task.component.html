@@ -4,7 +4,8 @@
     <button
             (click)="addTask()"
             [disabled]="!task.description"
-            [class]="!task.description?'button-disabled':'button-enable'">ADD TASK</button>
+            [class]="!task.description?'button-disabled':'button-enable'">ADD TASK
+    </button>
 </div>
 <div>
     <h3 *ngIf="tasks.length==0">No task at this moment.</h3>

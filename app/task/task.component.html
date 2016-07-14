@@ -1,0 +1,13 @@
+<h2>Tasks list - Total: {{tasks.length}}</h2>
+<div>
+    <input type="text" [(ngModel)]="task.description">
+    <button (click)="addTask()">Add</button>
+</div>
+<div>
+    <h3 *ngIf="tasks.length==0">No task at this moment.</h3>
+</div>
+
+<div>
+    <app-task-list></app-task-list>
+</div>
+

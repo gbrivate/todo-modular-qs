@@ -7,7 +7,7 @@ import {TaskListComponent} from './task-list';
 @Component({
     moduleId: module.id,
     selector: 'app-task',
-    styleUrls:  ['task.component.css'],
+    styleUrls: ['task.component.css'],
     templateUrl: 'task.component.html',
     directives: [TaskListComponent],
 })
@@ -17,18 +17,29 @@ export class TaskComponent implements OnInit {
     tasks:TaskModule[];
 
     constructor(private taskService:TaskService) {
+        console.log('TaskComponent.constructor');
         this.task = new TaskModule();
         this.tasks = [];
     }
 
     ngOnInit():void {
+        console.log('TaskComponent.ngOnInit');
         this.tasks = this.taskService.getTasks();
 
     }
 
     addTask():void {
+        console.log('TaskComponent.addTask');
         this.taskService.addTask(this.task);
+        this.tasks = this.taskService.getTasks();
         this.task = new TaskModule();
+    }
+
+    //event emitter
+    onChange(isChange:boolean) {
+        if (isChange) {
+            this.tasks = this.taskService.getTasks();
+        }
     }
 
 

@@ -8,6 +8,10 @@
 </div>
 
 <div>
-    <app-task-list></app-task-list>
+    <app-task-list
+            [tasks]="tasks"
+            (isChange)="onChange($event)">
+
+    </app-task-list>
 </div>
 

@@ -57,7 +57,7 @@ export class TaskService {
         let response:string = res.text();
         if(response.indexOf('[{')!=-1 || response.indexOf('callback({')!=-1){
             response = response.replace('callback({', '[{');
-            response = response.replace('[{','{',);
+            response = response.replace('[{','{');
             response = response.replace('}]', '}');
         }
         let body = JSON.parse(response);

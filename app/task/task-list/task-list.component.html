@@ -1,4 +1,6 @@
-<p *ngFor="let task of tasks" style="width: 250px">
-    <span style="width: 200px">{{task.id}} - {{task.description}}</span>
-    <button class="delete-button" (click)="removeTask(task)">REMOVE</button>
-</p>
+<div>
+    <p *ngFor="let task of tasks" style="width: 250px">
+        <span style="width: 200px">{{task.id}} - {{task.description}}</span>
+        <button class="delete-button" (click)="removeTask(task)">REMOVE</button>
+    </p>
+</div>

@@ -1,0 +1,12 @@
+<br>
+<div>
+    <input type="text"
+           (keyup.enter)="addTask()"
+           [(ngModel)]="task.description">
+    <button
+            (click)="addTask()"
+            [disabled]="!task.description"
+            [class]="!task.description?'button-disabled':'button-enable'">ADD TASK
+    </button>
+
+</div>

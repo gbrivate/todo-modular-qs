@@ -1,17 +1,16 @@
-import {provideRouter, RouterConfig} from '@angular/router';
+import {provideRouter} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { TaskComponent,TaskListComponent } from './task';
+import {taskRoutes} from './task';
 
-export const appRoutes:RouterConfig = [
+const routes = [
     {
         path: '',
         redirectTo: '/tasks',
         terminal: true
     },
-    {path: 'tasks', component: AppComponent},
+    ...taskRoutes,
 ];
 
-export const appRouterProviders = [
-    provideRouter(appRoutes)
+export const APP_ROUTER_PROVIDERS = [
+    provideRouter(routes),
 ];

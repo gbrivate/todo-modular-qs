@@ -10,7 +10,7 @@ import {TaskListComponent} from './task-list';
     selector: 'app-task',
     styleUrls: ['task.component.css'],
     templateUrl: 'task.component.html',
-    directives: [TaskListComponent],
+    directives: [TaskListComponent]
 })
 export class TaskComponent implements OnInit {
 

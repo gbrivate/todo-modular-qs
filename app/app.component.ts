@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ROUTER_DIRECTIVES}  from '@angular/router-deprecated';
+import {HTTP_PROVIDERS}  from '@angular/http';
+import {ROUTER_DIRECTIVES}  from '@angular/router';
 
-import {TaskService, TaskComponent} from './task'
+import  {MenuComponent} from './menu';
+
+import {TaskService} from './task';
 
 @Component({
     moduleId: module.id,
@@ -9,20 +12,22 @@ import {TaskService, TaskComponent} from './task'
     templateUrl: 'app.component.html',
     directives: [
         ROUTER_DIRECTIVES,
-        TaskComponent],
+        MenuComponent],
     providers: [
-        TaskService],
+        HTTP_PROVIDERS,
+        TaskService
+    ]
 
 })
 export class AppComponent implements OnInit {
 
 
     constructor() {
-
+        console.log('AppComponent.constructor');
     }
 
-    ngOnInit() {
-
+    ngOnInit():void {
+        console.log('AppComponent.ngOnInit');
     }
 
 

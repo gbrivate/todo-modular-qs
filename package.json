@@ -28,10 +28,8 @@
     "@angular/http":  "2.0.0-rc.4",
     "@angular/platform-browser":  "2.0.0-rc.4",
     "@angular/platform-browser-dynamic":  "2.0.0-rc.4",
-    "@angular/router":  "3.0.0-beta.2",
-    "@angular/router-deprecated":  "2.0.0-rc.2",
+    "@angular/router": "3.0.0-alpha.8",
     "@angular/upgrade":  "2.0.0-rc.4",
-
     "systemjs": "0.19.27",
     "core-js": "^2.4.0",
     "reflect-metadata": "^0.1.3",

@@ -44,7 +44,8 @@ export class TaskService {
     getRemoteTasks():Observable<TaskModule[]> {
         return this.http.get('app/mock_data/tasks.json')
             .map(response => {
-                this.tasks = this.extractData(response);
+                let data = this.extractData(response);
+                this.tasks = data.tasks;
                 this.index = this.tasks.length;
                 return this.tasks;
             })
@@ -53,8 +54,15 @@ export class TaskService {
     }
 
     private extractData(res:Response) {
-        let body = res.json();
-        return body.tasks || {};
+        let response:string = res.text();
+        if(response.indexOf('[{')!=-1 || response.indexOf('callback({')!=-1){
+            response = response.replace('callback({', '[{');
+            response = response.replace('[{','{',);
+            response = response.replace('}]', '}');
+        }
+        let body = JSON.parse(response);
+        body = (body.tasks)?body:(body.length)?body[0]:body;
+        return body;
     }
 
     private handleError(error:any) {

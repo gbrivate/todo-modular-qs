@@ -26,6 +26,13 @@ export class TaskService {
         this.tasks.push(task);
     }
 
+    getTask(id:number):TaskModule {
+        console.log(this.tasks);
+        return this.tasks.find( t => {
+            return t.id == id;
+        })
+    }
+
     removeAllTasks():void {
         this.tasks = [];
     }
